@@ -64,8 +64,8 @@ const Filter = ({ products, handleFilter, loading, tires }) => {
   return (
     <div className={styles.filter_container}>
       <div className={styles.filter_title_box}>
-        <div>Подбор шин по типоразмеру</div>
-        <div>По авто</div>
+        <button className={styles.filter_title_category}>Подбор шин по типоразмеру</button>
+        <button className={styles.filter_title_car}>По авто</button>
       </div>
       <div className={styles.filter_box}>
         <select
