@@ -34,7 +34,14 @@ const Main = () => {
   ]; //Массив, который формируется после фильрации на фронте, после чего отправляется на бэк для филтрации там. Нужно
 
   function handleFilter(tires) {
-    const queryStr = qs.stringify(tireArray[0]);
+    const query = {};
+    for (const key in tireArray[0]) {
+      if (tireArray[0][key] !== false && tireArray[0][key] !== 0) {
+        query[key] = tireArray[0][key];
+      }
+    }
+
+    const queryStr = qs.stringify(query);
     navigate(`?${queryStr}`);
     dispatch(filterProducts(tireArray));
   }
