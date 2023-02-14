@@ -1,10 +1,12 @@
-import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import { createAction, createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   error: false,
   loading: false,
   token: localStorage.getItem("token"),
 };
+
+export const onChange = createAction("error");
 
 export const authSingUp = createAsyncThunk(
   "auth/singUp",
@@ -65,6 +67,9 @@ const authSlice = createSlice({
   reducers: {},
   extraReducers: (builder) => {
     builder
+      .addCase(onChange, (state, action) => {
+        state.error = false
+      })
       .addCase(authSingUp.pending, (state) => {
         state.loading = true;
         state.error = false;

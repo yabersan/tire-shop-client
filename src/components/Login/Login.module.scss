@@ -1,0 +1,123 @@
+.container {
+  width: 450px;
+  height: 700px;
+  background-color: whitesmoke;
+  border-radius: 15px;
+}
+.divFlex {
+  display: flex;
+  justify-content: center;
+}
+.input1 {
+  outline: none;
+  border: 0px;
+  border-bottom: 1px solid grey;
+  background: none;
+  padding-left: 10px;
+  width: 350px;
+  margin-left: 50px;
+  height: 40px;
+}
+.input2 {
+  border: 0px;
+  border-bottom: 1px solid grey;
+  background: none;
+  padding-left: 10px;
+  margin-top: 40px;
+  margin-left: 50px;
+  height: 40px;
+  width: 350px;
+
+  &:focus {
+    outline: none;
+  }
+}
+.button2 {
+  cursor: pointer;
+  position: relative;
+  background: none;
+  border: 0;
+  border-radius: 7px;
+  color: white;
+  right: 40px;
+}
+.mainDiv {
+  margin-top: 170px;
+}
+.text {
+  font-size: 50px;
+  width: 100px;
+  height: 20px;
+  margin-top: 100px;
+  margin-left: 180px;
+}
+.button {
+  color: white;
+  margin-top: 60px;
+  border: none;
+  width: 290px;
+  height: 50px;
+  margin-left: 80px;
+  border-radius: 30px;
+  cursor: pointer;
+  background: linear-gradient(
+    149deg,
+    rgba(24, 187, 156, 1) 0%,
+    rgba(106, 57, 175, 1) 42%,
+    rgba(187, 24, 148, 1) 72%,
+    rgba(115, 53, 134, 1) 100%
+  );
+  animation: gradient 10s infinite linear;
+  background-size: 400%;
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 80% 0%;
+  }
+  50% {
+    background-position: 20% 100%;
+  }
+  100% {
+    background-position: 80% 0%;
+  }
+}
+.glaz {
+  width: 20px;
+  height: 20px;
+  background: none;
+  position: relative;
+}
+.glaz2{
+  width: 20px;
+  height: 20px;
+  background: none;
+  position: relative;
+
+}
+.input1Error{
+  outline: none;
+  border: 0px;
+  border-bottom: 1px solid red;
+  background: none;
+  padding-left: 10px;
+  width: 350px;
+  margin-left: 50px;
+  height: 40px;
+}
+.input2Error{
+  outline: none;
+  border: 0px;
+  border-bottom: 1px solid red;
+  background: none;
+  padding-left: 10px;
+  width: 350px;
+  margin-left: 50px;
+  height: 40px;
+  margin-top: 40px;
+}
+.errDiv{
+  margin-left: 60px;
+  margin-top: 10px;
+  color: red;
+}

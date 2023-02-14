@@ -5,5 +5,5 @@ import productsReducer from "../features/productsSlice";
 import chatsReducer from "../features/chatSlice";
 
 export const store = configureStore({
-  reducer: { authReducer, cartReducer, productsReducer, chatsReducer },
+  reducer: { authReducer, cartReducer, productsReducer, chatsReducer, authReducer },
 });
