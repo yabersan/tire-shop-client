@@ -1,0 +1,17 @@
+.header {
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  background-color: #333333;
+
+}
+
+.header_list{
+  display: flex;
+  width: 1000px;
+  justify-content: space-around;
+}
+a {
+  color: white;
+  text-decoration: none 
+}

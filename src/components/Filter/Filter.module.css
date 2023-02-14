@@ -1,0 +1,40 @@
+.filter_container {
+  margin: auto;
+  text-align: center;
+  width: 350px;
+}
+
+.filter_box {
+  width: 100%;
+  justify-content: space-between;
+  margin: auto;
+}
+select {
+  margin: 5px 5px 5px 5px;
+}
+
+.filter_title_box {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+.btn_submit {
+  background-color: #fade56;
+  padding: 5px 20px 5px 20px;
+  border: none;
+  border-radius: 7px;
+  cursor: pointer;
+}
+.filter_title_category,
+.filter_title_car {
+  padding: 5px 20px 5px 20px;
+  border: 0.5px solid rgb(187, 184, 184);
+  background-color: white;
+  border-radius: 7px;
+}
+.filter_title_category:focus,
+.filter_title_car:focus {
+  background-color: #fade56;
+  border-radius: 7px;
+}

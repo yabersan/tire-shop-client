@@ -1,0 +1,8 @@
+*{
+  box-sizing: border-box;
+}
+
+.main_conteiner{
+  width: 1200px;
+  margin: auto;
+}
