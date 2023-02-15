@@ -19,13 +19,13 @@ select {
   margin-top: 30px;
   margin-bottom: 30px;
 }
-.btn_submit {
+/* .btn_submit {
   background-color: #fade56;
   padding: 5px 20px 5px 20px;
   border: none;
   border-radius: 7px;
   cursor: pointer;
-}
+} */
 .filter_title_category,
 .filter_title_car {
   padding: 5px 20px 5px 20px;
@@ -38,3 +38,5 @@ select {
   background-color: #fade56;
   border-radius: 7px;
 }
+
+
