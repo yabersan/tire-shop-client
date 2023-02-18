@@ -1,0 +1,52 @@
+.filter_box {
+  width: 100%;
+  margin: auto;
+}
+
+.btn_submit {
+  background-color: #fade56;
+  padding: 5px 20px 5px 20px;
+  border: 0.5px solid #e6e9ec;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 5px;
+}
+
+select {
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  padding: 10px;
+  border: 1px solid #e6e9ec;
+  border-radius: 5px;
+  background-color: #fff;
+  color: #919191;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  cursor: pointer;
+  margin: 5px;
+}
+
+
+.tire_width_title{
+    color: #999898 !important;
+}
+
+select:hover {
+  border-color: #99999900;
+  box-shadow: 0 0 10px 1px #fade56;
+}
+
+select:focus {
+  border-radius: 5px 5px 0px 0px;
+  outline: none;
+  border-color: #e6e9ec;
+}
+
+option {
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  background-color: #ffffff;
+  color: #000000;
+}
