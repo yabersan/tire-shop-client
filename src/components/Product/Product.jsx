@@ -8,7 +8,7 @@ const Product = () => {
   const { id } = useParams();
   const dispatch = useDispatch();
   const product = useSelector((state) => state.productsReducer.product);
-console.log(product);
+  console.log(product);
 
   useEffect(() => {
     dispatch(getProduct(id));
@@ -20,12 +20,25 @@ console.log(product);
         <NavLink className={styles.home_link} to="/">
           Главная
         </NavLink>
-        /<NavLink className={styles.home_link}>{product.tireCompany}</NavLink>/<div>{product.tireModel}</div>
+        /<NavLink className={styles.home_link}>{product.tireCompany}</NavLink>/
+        <div className={styles.model_link}>{product.tireModel}</div>
       </div>
       <div className={styles.product_box}>
-        dsfsdfsfsdgsgsdgsdg gsfdg g sgfs g dhf
+        <div className={styles.product_image_container}>
+          <img
+            className={styles.product_image}
+            src={product.productPicture}
+            alt=""
+          />
+        </div>
+        <div className={styles.product_info_container}>
+          <div>
+            <div className={styles.tire_name}>{product.productName}</div>
+            <div></div>
+          </div>
+          <div></div>
+        </div>
       </div>
-      f
     </div>
   );
 };
