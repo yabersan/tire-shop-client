@@ -38,7 +38,10 @@ const Products = ({ filter, loading }) => {
                 <img src={item.productPicture} alt="Product Image" />
               </div>
               <div className={styles.product_details}>
-                <NavLink to={"/product/"+item._id} className={styles.product_name}>
+                <NavLink
+                  to={"/product/" + item._id}
+                  className={styles.product_name}
+                >
                   <h3>{item.productName}</h3>
                 </NavLink>
                 <span className={styles.product_price}>{item.price} руб.</span>
