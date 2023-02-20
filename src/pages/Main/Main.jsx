@@ -40,15 +40,26 @@ const Main = () => {
         query[key] = tireArray[0][key];
       }
     }
-
     const queryStr = qs.stringify(query);
     navigate(`?${queryStr}`);
     dispatch(filterProducts(tireArray));
   }
 
   useEffect(() => {
-    dispatch(filterProducts(tireArray));
-    dispatch(getProducts());
+    if (window.location.search) {
+      const params = qs.parse(window.location.search.substring(1));
+      const arrayParams = new Array(params);
+      dispatch(getProducts());
+      dispatch(filterProducts(arrayParams));
+
+    }
+  }, [dispatch]);
+
+  useEffect(() => {
+    if (!window.location.search) {
+      dispatch(filterProducts(tireArray));
+      dispatch(getProducts());
+    }
   }, [dispatch]);
 
   return (
