@@ -1,8 +1,27 @@
-import React from "react";
+import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import styles from "./Products.module.css";
 
 const Products = ({ filter, loading }) => {
+  const [prod, setLocalProducts] = useState()
+
+
+
+  function addProduct(product) {
+    if (true) {
+      let products = JSON.parse(localStorage.getItem("cart"));
+      if(products.indexOf(product._id) === -1){
+      products.push(product._id);
+      setLocalProducts(products);
+      localStorage.setItem("cart", JSON.stringify(products));
+      }
+
+    } else {
+    }
+  }
+
+
+
   if (loading) {
     return <div className={styles.loader}></div>;
   }
@@ -24,7 +43,7 @@ const Products = ({ filter, loading }) => {
                 </NavLink>
                 <span className={styles.product_price}>{item.price} руб.</span>
                 <div className={styles.product_actions}>
-                  <button className={styles.add_to_cart}>Add to Cart</button>
+                  <button className={styles.add_to_cart} onClick={() => { addProduct(item)}} >Add to Cart</button>
                   <button className={styles.buy_now}>Buy Now</button>
                 </div>
               </div>
