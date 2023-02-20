@@ -1,0 +1,19 @@
+* {
+  box-sizing: border-box;
+}
+
+.product_container{
+    width: 60%;
+    margin: auto;
+    margin-top: 20px;
+}
+.links{
+    display: flex;
+    color: rgb(85, 85, 85);
+}
+.home_link{
+    color: rgb(85, 85, 85);
+}
+.product_box{
+    margin-top: 30px;
+}

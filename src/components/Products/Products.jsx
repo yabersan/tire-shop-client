@@ -1,4 +1,5 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
 import styles from "./Products.module.css";
 
 const Products = ({ filter, loading }) => {
@@ -18,7 +19,9 @@ const Products = ({ filter, loading }) => {
                 <img src={item.productPicture} alt="Product Image" />
               </div>
               <div className={styles.product_details}>
-                <h3 className={styles.product_name}>{item.productName}</h3>
+                <NavLink to={"/product/"+item._id} className={styles.product_name}>
+                  <h3>{item.productName}</h3>
+                </NavLink>
                 <span className={styles.product_price}>{item.price} руб.</span>
                 <div className={styles.product_actions}>
                   <button className={styles.add_to_cart}>Add to Cart</button>
