@@ -1,0 +1,87 @@
+.footerBody {
+  width: 100%;
+  height: 440px;
+  background-color: #474747;
+  display: flex;
+}
+.catalog {
+  margin-left: 150px;
+  margin-top: 90px;
+}
+.aboutStore {
+  margin-left: 200px;
+  margin-top: 80px;
+}
+.contacts {
+  margin-left: 200px;
+  margin-top: 80px;
+}
+.contacts2 {
+  display: flex;
+}
+.contacts3 {
+  align-items: center;
+  display: flex;
+}
+.contacts4 {
+  display: flex;
+}
+.text1 {
+  font-family: "Manrope";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 23px;
+  margin-bottom: 10px;
+  color: #ececec;
+}
+.text2 {
+  cursor: pointer;
+  font-family: "Manrope";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 23px;
+
+  color: #9e9e9e;
+}
+.text3 {
+  cursor: pointer;
+  font-family: "Manrope";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 23px;
+  color: #fade56;
+}
+.text4 {
+  cursor: pointer;
+  font-family: "Manrope";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 23px;
+  margin-left: 5px;
+  color: #9e9e9e;
+}
+.contactImg {
+  margin-left: 4px;
+}
+.policy {
+  margin-left: 100px;
+  margin-top: 90px;
+}
+.text6 {
+  cursor: pointer;
+  font-family: "Manrope";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 23px;
+  border-bottom: 1px solid #9e9e9e;
+
+  color: #9e9e9e;
+}
+.policyImages{
+  margin-top: 10px;
+}

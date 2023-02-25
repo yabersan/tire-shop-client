@@ -1,5 +1,6 @@
 .header {
   width: 100%;
+  height: 50px;
   display: flex;
   justify-content: space-evenly;
   background-color: #333333;
@@ -7,6 +8,7 @@
 }
 
 .header_list{
+  align-items: center;
   display: flex;
   width: 1000px;
   justify-content: space-around;

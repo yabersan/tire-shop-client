@@ -11,8 +11,14 @@
 
   border-bottom: 1px solid #e7e7e7;
 }
+.body2 {
+  max-width: 1200px;
+  margin: 0 auto 20px;
+  display: flex;
+  align-items: center;
+  height: 50px;
+}
 .list {
-
   align-items: center;
   margin-left: 100px;
   justify-content: space-between;
@@ -35,16 +41,92 @@
   position: relative;
 }
 .imgLupa {
-
+  cursor: pointer;
   position: absolute;
   left: 320px;
   top: 50%;
   translate: 0 -50%;
   width: 15px;
 }
-.extranceDiv{
-    margin-left: 70px;
+.extranceDiv {
+  margin-left: 70px;
 }
-.entrance{
+.entrance {
+  margin-left: 20px;
+  cursor: pointer;
+}
+.group2 {
+  margin-left: 90px;
+}
+/* .imgGroup2{
+    width: 130px;
+    height: 58px;
+} */
+.yandexImg {
+  height: 88px;
+  width: 200px;
+}
+.textDiv {
+  margin-left: 100px;
+}
+.workingTime {
+  color: #969696;
+}
+.workingTime2 {
+  font-family: "Manrope";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 23px;
+}
+.callDiv {
+  margin-left: 40px;
+}
+.numberPhone {
+  font-family: "Manrope";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 23px;
+  color: #333333;
+}
+.call {
+  cursor: pointer;
+  width: 109px;
+  padding-left: 10px;
+  border-bottom: 1px solid yellow;
+  font-family: "Manrope";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 23px;
+  color: #333333;
+}
+.heart{
+    cursor: pointer;
+    margin-left: 110px;
+}
+.setting{
+    cursor: pointer;
     margin-left: 20px;
+}
+.delivery{
+    color: black;
+}
+.basketDiv{
+    position: relative;
+    margin-left: 30px;
+
+}
+.basketDiv2{
+    position: absolute;
+    left: 13px;
+    top: 10px;
+}
+.infBasketDiv{
+    margin-left: 10px;
+    margin-bottom: 5px;
+}
+.bask{
+    color:grey;
 }
