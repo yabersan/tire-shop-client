@@ -108,7 +108,8 @@
 }
 
 .add_to_cart,
-.buy_now {
+.buy_now,
+.del_to_cart {
   background-color: #fade56;
   border: none;
   color: rgb(0, 0, 0);
@@ -128,3 +129,11 @@
 .productLink{
   color: black;
 }
+
+.del_to_cart{
+  background-color: #d5be4c48;
+}
+.del_to_cart:hover{
+  background-color: #fade56;
+}
+
