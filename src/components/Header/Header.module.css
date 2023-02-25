@@ -10,8 +10,9 @@
 .header_list{
   align-items: center;
   display: flex;
-  width: 1000px;
+  width: 900px;
   justify-content: space-around;
+  padding: 25px;
 }
 a {
   color: white;
