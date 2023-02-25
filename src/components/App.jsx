@@ -13,12 +13,12 @@ function App() {
         <Route path="/" element={<Layout />}>
           <Route path="/login" element={<Login />} />
           <Route index element={<Main />} />
-          <Route path="/product/:id" element={<Product />} />
+
           <Route />
         </Route>
       </Routes>
     </div>
   );
 }
-
+  
 export default App;
