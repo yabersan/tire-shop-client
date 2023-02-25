@@ -1,0 +1,16 @@
+.product_info_container {
+  padding-left: 25px;
+  display: flex;
+  flex-direction: column;
+  width: 65%;
+  border-radius: 10px;
+}
+.tire_name {
+  font-size: 20px;
+  font-weight: 400;
+}
+.reviews_questions_compare {
+  display: flex;
+  padding: 15px 0 15px 0;
+  border-bottom: 0.8px solid #e6e9ec;
+}

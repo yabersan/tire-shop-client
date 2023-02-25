@@ -1,0 +1,11 @@
+.links {
+  display: flex;
+  color: rgb(85, 85, 85);
+  font-size: 14px;
+}
+.home_link {
+  color: rgb(85, 85, 85);
+}
+.model_link {
+  color: black;
+}
