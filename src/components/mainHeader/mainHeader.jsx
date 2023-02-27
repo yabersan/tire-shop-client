@@ -58,7 +58,7 @@ const MainHeader = () => {
         <div className={styles.textDiv}>
           <div className={styles.workingTime}>Режим работы:</div>
           <div className={styles.workingTime2}>Пн-Вс: c 09:00-20:00</div>
-        </div>
+        </div>    
         <div className={styles.callDiv}>
           <div className={styles.numberPhone}>8 (938) 020-16-96</div>
           <Link to="tel:89380201696" className={styles.call}>

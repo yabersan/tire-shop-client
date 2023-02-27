@@ -27,8 +27,6 @@
 }
 .inputSearch {
   border: 1px solid #e7e7e7;
-  /* width: 100%; */
-  /* max-width: s00px; */
   width: 250px;
   height: 40px;
   margin-left: 30px;
@@ -58,16 +56,14 @@
 .group2 {
   margin-left: 90px;
 }
-/* .imgGroup2{
-    width: 130px;
-    height: 58px;
-} */
+
 .yandexImg {
   height: 88px;
   width: 200px;
 }
 .textDiv {
-  margin-left: 100px;
+  margin-left: 60px;
+  width: 200px;
 }
 .workingTime {
   color: #969696;
@@ -78,9 +74,10 @@
   font-weight: 700;
   font-size: 16px;
   line-height: 23px;
+  width: 200px;
 }
 .callDiv {
-  margin-left: 40px;
+  width: 200px;
 }
 .numberPhone {
   font-family: "Manrope";
@@ -89,6 +86,8 @@
   font-size: 20px;
   line-height: 23px;
   color: #333333;
+
+  width: 200px;
 }
 .call {
   cursor: pointer;
@@ -102,31 +101,33 @@
   line-height: 23px;
   color: #333333;
 }
-.heart{
-    cursor: pointer;
-    margin-left: 110px;
+.heart {
+  cursor: pointer;
+  margin-left: 110px;
 }
-.setting{
-    cursor: pointer;
-    margin-left: 20px;
+.setting {
+  cursor: pointer;
+  margin-left: 20px;
 }
-.delivery{
-    color: black;
+.delivery {
+  color: black;
 }
-.basketDiv{
-    position: relative;
-    margin-left: 30px;
-
+.basketDiv {
+  position: relative;
+  margin-left: 30px;
 }
-.basketDiv2{
-    position: absolute;
-    left: 13px;
-    top: 10px;
+.basketDiv2 {
+  position: absolute;
+  left: 13px;
+  top: 10px;
 }
-.infBasketDiv{
-    margin-left: 10px;
-    margin-bottom: 5px;
+.infBasketDiv {
+  margin-left: 10px;
+  margin-bottom: 5px;
 }
-.bask{
-    color:grey;
+.bask {
+  color: grey;
+}
+.bask2 {
+  width: 100px;
 }

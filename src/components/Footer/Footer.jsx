@@ -7,6 +7,7 @@ import policy from '../Footer/policy.png'
 
 const Footer = () => {
   return (
+    <div>
     <div className={styles.footerBody}>
       <div className={styles.catalog}>
         <div className={styles.text1}>Каталог</div>
@@ -57,6 +58,9 @@ const Footer = () => {
         <img src={policy} alt="" />
         </div>
       </div>
+      
+    </div>
+    
     </div>
   );
 };
