@@ -17,10 +17,10 @@ const Header = () => {
           <Link>Мотошины</Link>
         </div>
         <div>
-          <Link>Пункт выдачи</Link>
+          <Link to='/shops'>Пункт выдачи</Link>
         </div>
         <div>
-          <Link>Акции</Link>
+          <Link to='/promotion'>Акции</Link>
         </div>
         <div>
           <Link>Контакты</Link>
