@@ -13,7 +13,7 @@ const BuyContainer = ({ product }) => {
       <TireFittingCheckbox />
       <TireFittingCheckbox2 />
       <KeepingCheckbox />
-      <BuyButton />
+      <BuyButton product={product}/>
       
       {/* <div>КНОПКА КУПИТЬ В КРЕДИТ</div>
       <div>Самовывоз сегодня бесплатно</div> */}

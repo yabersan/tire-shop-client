@@ -1,8 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import styles from "./Products.module.css";
 
 const Products = ({ filter, loading }) => {
+
+  
+
   if (loading) {
     return <div className={styles.loader}></div>;
   }
@@ -27,7 +30,14 @@ const Products = ({ filter, loading }) => {
                 </NavLink>
                 <span className={styles.product_price}>{item.price} руб.</span>
                 <div className={styles.product_actions}>
-                  <button className={styles.add_to_cart}>Add to Cart</button>
+                   
+                    <NavLink to={`/product/${item._id}`}
+                      className={styles.add_to_cart}
+                    >
+                      Add to Cart
+                    </NavLink>
+
+                 
                   <button className={styles.buy_now}>Buy Now</button>
                 </div>
               </div>
