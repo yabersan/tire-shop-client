@@ -1,0 +1,75 @@
+.shopsBody {
+  width: 800px;
+  height: 632px;
+  margin: 20px 0px 100px 250px;
+  position: relative;
+
+  border: 1px solid #e5e5e5;
+}
+.mainText {
+  margin-left: 255px;
+  margin-top: 50px;
+  font-size: 20px;
+}
+.firstBlock {
+  border-top: none;
+  height: 200px;
+  width: 350px;
+
+  border-bottom: 1px solid #e5e5e5;
+  border-right: 1px solid #e5e5e5;
+}
+.secondBlock {
+  border-top: none;
+  height: 200px;
+  width: 350px;
+  border-right: 1px solid #e5e5e5;
+}
+.thirdBlock {
+  border-top: none;
+  height: 200px;
+  width: 350px;
+  border-right: 1px solid #e5e5e5;
+  border-top: 1px solid #e5e5e5;
+}
+.firstBlockText {
+  margin: 20px 0px 0px 20px;
+}
+.choise {
+  margin: 10px 0px 0px 10px;
+}
+.groupImages {
+  width: 200px;
+  margin: 10px;
+  display: flex;
+  justify-content: space-around;
+}
+.colorYellow {
+  color: yellow;
+}
+.groupFavorite {
+  margin: 10px 0px 0px 20px;
+}
+.secondAdress {
+  width: 200px;
+  margin: 10px 0px 0px 20px;
+  color: grey;
+}
+.colorGrey {
+  color: grey;
+  margin-left: 5px;
+}
+.maps {
+  width: 450px;
+  left: 350px;
+  height: 632px;
+  position: absolute;
+  bottom: 0px;
+  right: 50px;
+}
+.number{
+    margin-top: 5px;
+}
+.data{
+    margin-top: 5px;
+}
