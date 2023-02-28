@@ -9,8 +9,23 @@ import setting from "../mainHeader/Setting.png";
 import Bascet1 from "../mainHeader/Bascet1.png";
 import Bascet from "../mainHeader/Basket.png";
 import { Link } from "react-router-dom";
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { getProdsFromCart } from "../../features/cartSlice";
 
 const MainHeader = () => {
+  const auth = useSelector((state) => state.authReducer.isAuth);
+  let cart = useSelector(state => state.cartReducer.cartLength)
+
+  const dispatch = useDispatch()
+  useEffect(() => {
+    if(auth){
+        dispatch(getProdsFromCart())
+    }else{
+
+    }
+    
+}, [auth]);
   return (
     <>
       <div className={styles.body}>
@@ -79,7 +94,7 @@ const MainHeader = () => {
         </div>
         <div className={styles.infBasketDiv}>
           <div className={styles.bask}> Корзина</div>
-          <div className={styles.bask2}> 0 товаров</div>
+          <div className={styles.bask2}> {cart.length} товаров</div>
         </div>
       </div>
     </>
