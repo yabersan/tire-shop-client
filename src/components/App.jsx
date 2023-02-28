@@ -1,5 +1,9 @@
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { Route, Routes } from "react-router-dom";
 import Layout from "../components/Layout/Layout";
+import { isAuth } from "../features/authSlice";
+import { addProducts } from "../features/cartSlice";
 import Main from "../pages/Main/Main";
 import "./App.css";
 import Header from "./Header/Header";
@@ -7,6 +11,20 @@ import Login from "./Login/Login";
 import Product from "./Product/Product";
 
 function App() {
+const dispatch = useDispatch()
+const token = localStorage.getItem("token")
+const auth = useSelector(state => state.authReducer.isAuth)
+
+
+useEffect(() => {
+if(auth){
+
+dispatch(addProducts(JSON.parse(localStorage.getItem("cart"))))
+}
+dispatch(isAuth())
+
+
+}, [auth]);
   return (
     <div className="App">
       <Routes>

@@ -4,6 +4,7 @@ const initialState = {
   error: false,
   loading: false,
   token: localStorage.getItem("token"),
+  isAuth: false
 };
 
 export const onChange = createAction("error");
@@ -61,6 +62,23 @@ export const authSingIn = createAsyncThunk(
   }
 );
 
+export const isAuth = createAsyncThunk("post/isAuth", async(act, thunkAPI) => {
+  try {
+    const res = await fetch("http://localhost:4040/users/isAuth", {
+        method: "POST",
+        headers: { 
+          "Content-Type": "application/json", 
+          "authorization": `Bearer ${localStorage.getItem("token")}`
+        },
+      });
+     
+      return res.json();
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error);
+    }
+  }
+)
+
 const authSlice = createSlice({
   name: "Auth",
   initialState,
@@ -95,7 +113,12 @@ const authSlice = createSlice({
         state.loading = false;
         state.error = false;
         state.token = action.payload;
-      });
+      }).addCase(isAuth.fulfilled, (state, action) => {
+        state.isAuth = true
+      }).addCase(isAuth.rejected, (state, action) => {
+        state.isAuth = false
+
+      })
   },
 });
 
