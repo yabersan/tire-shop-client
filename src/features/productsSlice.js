@@ -62,6 +62,8 @@ export const filterProducts = createAsyncThunk(
   }
 );
 
+
+
 const productsReducer = createSlice({
   name: "products",
   initialState,

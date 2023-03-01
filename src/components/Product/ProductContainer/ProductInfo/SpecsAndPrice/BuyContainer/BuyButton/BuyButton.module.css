@@ -32,6 +32,10 @@
   transition: color 0.3s linear;
   position: relative;
   cursor: pointer;
+  color: rgba(0, 0, 0, 0.404);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .buy_btn1{
   background-color: #ffe97d90;

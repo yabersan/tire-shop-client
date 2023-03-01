@@ -1,0 +1,111 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.mainContainer{
+width: 100%;
+display: flex;
+justify-content: center;
+align-items: center;
+padding-top: 30px;
+padding-bottom: 50px;
+
+}
+
+.containerCart{
+    width: 70%;
+    display: flex;
+    justify-content: space-between;
+    
+}
+.left{
+    width: 70%;
+}
+
+.product, .changing{
+    box-sizing: content-box;
+    padding: 10px 10px;
+    margin-top: 20px;
+    width: 100%;
+
+    background-color: #ffffff;
+    border-radius: 7px;
+    box-shadow: 0px 0px 7px rgba(0, 0, 0, 0.211);
+    height: 150px;
+    color: rgb(41, 41, 41);
+    display: flex;
+    justify-content: space-between;
+}
+.leftMiddle{
+    width: 64%;
+}
+.pflex{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 42%;
+    font-size: 13px;
+    margin-top: 8px;
+}
+.min{
+    font-size: 13px;
+
+}
+
+.errOrNot{
+    width: 15%;
+    margin-left: 5px;
+    cursor: pointer;
+
+    
+}
+
+.leftRight{
+    width: 10%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.delete{
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+   
+}
+.img_block{
+    width: 20%;
+}
+
+.prodImg{
+    width: 96%;
+    height: 98%;
+    border-radius: 7px;
+}
+
+.none{
+    display: none;
+}
+
+.buttons{
+    display: flex;
+    justify-content: space-between;
+    width: 300%;
+    padding-bottom: 5px;
+
+}
+
+.otm, .ud{
+    background: none;
+    width: 48%;
+    border: none;
+    cursor: pointer;
+    background-color: #ffe97d;
+    color: black;
+    border-radius: 5px;
+    height: 30px;
+}
