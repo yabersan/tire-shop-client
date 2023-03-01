@@ -16,6 +16,11 @@ import { getProdsFromCart } from "../../features/cartSlice";
 const MainHeader = () => {
   const auth = useSelector((state) => state.authReducer.isAuth);
   let cart = useSelector(state => state.cartReducer.cartLength)
+  console.log(cart)
+  const last = Number(String(cart.length)[String(cart.length).length - 1])
+  const lastsec = Number((cart.length > 9 ? String(cart.length)[String(cart.length).length - 2] : "0") + String(cart.length)[String(cart.length).length - 1])
+  console.log(last, lastsec)
+  const token = useSelector((state) => state.authReducer.token);
 
   const dispatch = useDispatch()
   useEffect(() => {
@@ -56,10 +61,10 @@ const MainHeader = () => {
         </div>
         <div className={styles.extranceDiv}>
           <img src={group} alt="" />
-        </div>
-        <div className={styles.entrance}>
+        </div>{ !token ?
+        <Link to="/login" className={styles.entrance}>
           <img src={entrance} alt="" />
-        </div>
+        </Link> :  null}
       </div>
       {/* Вторая строка */}
       <div className={styles.body2}>
@@ -87,14 +92,14 @@ const MainHeader = () => {
           <img src={setting} alt="" />
         </div>
         <div className={styles.basketDiv}>
-          <img src={Bascet1} alt="" />
+        <Link to="cart"><img src={Bascet1} alt="" />
           <div className={styles.basketDiv2}>
             <img src={Bascet} alt="" />
-          </div>
+          </div></Link> 
         </div>
         <div className={styles.infBasketDiv}>
-          <div className={styles.bask}> Корзина</div>
-          <div className={styles.bask2}> {cart.length} товаров</div>
+          <Link to="cart" className={styles.bask}> Корзина</Link>
+          <div className={styles.bask2}> {cart.length} {`товар${ lastsec > 10 && lastsec < 20 ? "ов" : last > 1 && last < 5 ? "a" : lastsec > 10 && lastsec < 20 ? "ов" : last > 4 && last < 10 || last === 0 ? "ов" : ""}`}</div>
         </div>
       </div>
     </>
