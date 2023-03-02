@@ -38,6 +38,9 @@ lastsec = Number((cart1.length > 9 ? String(cart1.length)[String(cart1.length).l
   useEffect(() => {
     if(auth){
         dispatch(getProdsFromCart())
+    }else if(localStorage.getItem("cart") === null){
+      localStorage.setItem("cart", JSON.stringify([]))
+
     }
     else if(localStorage.getItem("cart").length > 0 && (localStorage.getItem("cart")[0] + localStorage.getItem("cart")[localStorage.getItem("cart").length - 1]) !== "[]"){
       localStorage.setItem("cart", JSON.stringify([]))
