@@ -8,13 +8,21 @@ import heart from "../mainHeader/Heart.png";
 import setting from "../mainHeader/Setting.png";
 import Bascet1 from "../mainHeader/Bascet1.png";
 import Bascet from "../mainHeader/Basket.png";
+import login from "../mainHeader/Login.svg";
 import { Link } from "react-router-dom";
+import { useSelect } from "@mui/base";
+import { color } from "@mui/system";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getProdsFromCart } from "../../features/cartSlice";
 import { getProductsById } from "../../features/productsSlice";
 
 const MainHeader = () => {
+
+ const token = useSelector((state) => state.authReducer.token);
+  const handleClick = () => {
+    localStorage.removeItem("token");
+  };
   const auth = useSelector((state) => state.authReducer.isAuth);
   let cart = useSelector(state => state.cartReducer.cartLength)
   let cart1 = useSelector(state => state.productsReducer.cartLength)
@@ -28,7 +36,6 @@ lastsec = Number((cart.length > 9 ? String(cart.length)[String(cart.length).leng
  last = Number(String(cart1.length)[String(cart1.length).length - 1])
 lastsec = Number((cart1.length > 9 ? String(cart1.length)[String(cart1.length).length - 2] : "0") + String(cart1.length)[String(cart1.length).length - 1])
   }
-  console.log(last, lastsec)
 
 
 
@@ -82,10 +89,18 @@ lastsec = Number((cart1.length > 9 ? String(cart1.length)[String(cart1.length).l
         </div>
         <div className={styles.extranceDiv}>
           <img src={group} alt="" />
-        </div>{ !token ?
-        <Link to="/login" className={styles.entrance}>
-          <img src={entrance} alt="" />
-        </Link> :  null}
+        </div>
+        <div className={styles.entrance}>
+          <img src={login} alt="" />
+          {token === null ? (
+            <Link to="/login" style={{ color: "black" }}>
+              Войти
+            </Link>
+          ) : (
+            <div onClick={handleClick}>Выйти</div>
+          )}
+        </div>
+
       </div>
       {/* Вторая строка */}
       <div className={styles.body2}>
@@ -99,7 +114,7 @@ lastsec = Number((cart1.length > 9 ? String(cart1.length)[String(cart1.length).l
         <div className={styles.textDiv}>
           <div className={styles.workingTime}>Режим работы:</div>
           <div className={styles.workingTime2}>Пн-Вс: c 09:00-20:00</div>
-        </div>    
+        </div>
         <div className={styles.callDiv}>
           <div className={styles.numberPhone}>8 (938) 020-16-96</div>
           <Link to="tel:89380201696" className={styles.call}>

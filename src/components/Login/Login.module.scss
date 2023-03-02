@@ -1,125 +1,105 @@
-.container {
+.input {
   width: 450px;
-  height: 700px;
-  background-color: whitesmoke;
-  border-radius: 15px;
-  margin-top: 30px;
-  margin-bottom: 30px;
-}
-.divFlex {
-  display: flex;
-  justify-content: center;
-}
-.input1 {
+  border: 1px solid #ccd5db;
+  background: #f8fafc;
+  height: 35px;
   outline: none;
-  border: 0px;
-  border-bottom: 1px solid grey;
-  background: none;
-  padding-left: 10px;
-  width: 350px;
-  margin-left: 50px;
-  height: 40px;
+  margin-top: 5px;
+  box-sizing: border-box;
 }
-.input2 { 
-  border: 0px;
-  border-bottom: 1px solid grey;
-  background: none;
-  padding-left: 10px;
-  margin-top: 40px;
-  margin-left: 50px;
-  height: 40px;
-  width: 350px;
-
-  &:focus {
-    outline: none;
-  }
-}
-.button2 {
-  cursor: pointer;
+.input3 {
   position: relative;
-  background: none;
-  border: 0;
-  border-radius: 7px;
-  color: white;
-  right: 40px;
+  width: 450px;
+  border: 1px solid #ccd5db;
+  background: #f8fafc;
+  height: 35px;
+  outline: none;
+  margin-top: 5px;
+  box-sizing: border-box;
 }
-.mainDiv {
-  margin-top: 170px;
+.input3:focus {
+  outline: none;
+}
+
+.input3::placeholder {
+  color: white;
+}
+
+.container {
+  width: 500px;
+  height: 700px;
+  margin-top: 50px;
+  margin-left: 200px;
 }
 .text {
-  font-size: 50px;
-  width: 100px;
-  height: 20px;
-  margin-top: 100px;
-  margin-left: 180px;
+  color: #5a6c77;
+  font-size: 10px;
+}
+.div {
+  margin-top: 18px;
+}
+.div2 {
+  position: relative;
+  margin-left: 30px;
+  margin-top: 20px;
+  align-items: center;
+  font-weight: 0;
+}
+.input2 {
+  position: absolute;
+  margin-top: 5px;
+  cursor: pointer;
 }
 .button {
-  color: white;
-  margin-top: 60px;
-  border: none;
-  width: 290px;
-  height: 50px;
-  margin-left: 80px;
-  border-radius: 30px;
   cursor: pointer;
-  background: linear-gradient(
-    149deg,
-    rgba(24, 187, 156, 1) 0%,
-    rgba(106, 57, 175, 1) 42%,
-    rgba(187, 24, 148, 1) 72%,
-    rgba(115, 53, 134, 1) 100%
-  );
-  animation: gradient 10s infinite linear;
-  background-size: 400%;
+  outline: none;
+  margin-top: 20px;
+  height: 40px;
+  width: 100px;
+  border: none;
+  border-radius: 10px;
+  background-color: #fedb4c;
 }
 
-@keyframes gradient {
-  0% {
-    background-position: 80% 0%;
-  }
-  50% {
-    background-position: 20% 100%;
-  }
-  100% {
-    background-position: 80% 0%;
-  }
-}
-.glaz {
+.test2 {
+  position: absolute;
   width: 20px;
   height: 20px;
-  background: none;
-  position: relative;
+  margin-top: 29px;
 }
-.glaz2{
-  width: 20px;
-  height: 20px;
-  background: none;
-  position: relative;
+.error {
+  height: 35px;
+  width: 450px;
+  padding-left: 20px;
+  padding-top: 10px;
+  font-size: 10px;
+  color: #721c24;
+  background-color: #f8d7da;
+  border-color: #f5c6cb;
+}
+.hr {
+  width: 450px;
+  margin-top: 20px;
+  margin-right: 50px;
+}
+.link{
 
+  font-size: 12px;
+  color:  #517ca6;;
 }
-.input1Error{
-  outline: none;
-  border: 0px;
-  border-bottom: 1px solid red;
-  background: none;
-  padding-left: 10px;
-  width: 350px;
-  margin-left: 50px;
-  height: 40px;
+.helpDiv{
+  margin-top: 30px;
 }
-.input2Error{
-  outline: none;
-  border: 0px;
-  border-bottom: 1px solid red;
-  background: none;
-  padding-left: 10px;
-  width: 350px;
-  margin-left: 50px;
-  height: 40px;
-  margin-top: 40px;
+.helpDiv2{
+width: 500px;
+font-size: 13px;
 }
-.errDiv{
-  margin-left: 60px;
-  margin-top: 10px;
-  color: red;
+.helpDiv3{
+  margin-top: 5px;
+  font-size: 13px;
+  color:  #517ca6;
+  cursor: pointer;
+}
+.t3{
+  position: relative;
 }
