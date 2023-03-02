@@ -29,7 +29,7 @@ min-height: 300px;
     box-sizing: content-box;
     padding: 10px 10px;
     margin-top: 20px;
-    width: 100%;
+    width: 90%;
     padding: 20px 10px;
     background-color: #ffffff;
     border-radius: 7px;
@@ -41,6 +41,16 @@ min-height: 300px;
     color: rgb(41, 41, 41);
     display: flex;
     justify-content: space-between;
+}
+
+.check{
+    display: flex;
+    justify-content: space-between;
+}
+
+.checkbox{
+    width: 5%;
+
 }
 .leftMiddle{
     width: 64%;

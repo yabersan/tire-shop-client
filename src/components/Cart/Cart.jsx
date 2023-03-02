@@ -22,9 +22,22 @@ const Cart = () => {
     const [deleting, setDeleting] = useState(null)
   const [prod, setLocalProducts] = useState([]);
   const [change, setChange] = useState([[], ""]);
+  const [toplam, setToplam] = useState([[], 0])
 
 const token = useSelector((state) => state.authReducer.token);
 const auth = useSelector((state) => state.authReducer.isAuth);
+
+const Toplam = (e, item) => {
+
+    if(toplam[0].indexOf(item._doc._id) === -1 && e.target.value === "on"){
+        let new_toplam_arr = toplam[0].push(item._doc._id)
+        setToplam([new_toplam_arr, toplam[1] + (item.count * item._doc.price)+ (item.checked[0] ? 500 : 0 ) + (item.checked[2] ? 1000 : 0 )])
+        console.log(toplam[0],item._doc._id)
+
+    }else{
+        console.log("KMD")
+    }
+}
 
 function addProduct(product, num) {
     if(!auth){
@@ -89,7 +102,7 @@ useEffect(() => {
     <div className={styles.containerCart}>
 <div className={styles.left}>
     {cart.length > 0 ? cart.map((item, index) => {
-        return <div className={styles.product}>
+        return <div className={styles.check}><div className={styles.product}>
             <div className={styles.img_block}>
                 <img src={item._doc.productPicture} className={styles.prodImg} alt="img" />
             </div>
@@ -114,6 +127,10 @@ useEffect(() => {
 
                 </div>
             </div>
+        </div>
+        <input type="checkbox" onClick={(e) => {
+            Toplam(e, item)
+        }} className={styles.checkbox}/>
         </div>
     }) : cart1.map((item, index) => {
         return <div className={styles.product}>
