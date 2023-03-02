@@ -105,7 +105,7 @@ setAdded(inCart)
         +
       </button>
 
-      <Link to={!isAdded ?  null : "/cart"} onClick={() => addProduct(product)}   className={!isAdded ? styles.buy_btn : styles.buy_btn1}>{!isAdded ?  "В корзину" : "В корзине"} {isAdded ? <p>перейти</p> : null} </Link>
+      <Link to={!isAdded ?  null : "/cart"} onClick={() => !isAdded ? addProduct(product) : null}   className={!isAdded ? styles.buy_btn : styles.buy_btn1}>{!isAdded ?  "В корзину" : "В корзине"} {isAdded ? <p>перейти</p> : null} </Link>
     </div>
   );
 };

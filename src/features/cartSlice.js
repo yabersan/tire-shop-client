@@ -123,8 +123,17 @@ const cartReducer = createSlice({
   extraReducers: (builder) => {
     builder
       .addCase(productAdd.fulfilled, (state, action) => {
+
         state.inCart = true;
-        state.cartLength = action.payload[0].products
+        if(action.payload.length === 3){
+          state.cartLength = action.payload[0][0].products
+          state.cart = state.cart.map(item => {
+            return item._doc._id === action.payload[1] ? {...item, checked: action.payload[2]} : item
+          })
+        }else{
+          state.cartLength = action.payload[0].products
+        }
+       
 
       })
       .addCase(addProducts.fulfilled, (state, action) => {
@@ -143,6 +152,8 @@ const cartReducer = createSlice({
       })
       .addCase(deleteProd.fulfilled, (state, action) => {
         state.cart = action.payload;
+        state.cartLength = action.payload;
+
       });
   },
 });

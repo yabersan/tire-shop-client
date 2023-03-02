@@ -1,20 +1,33 @@
 import { useEffect, useState } from "react"
 import { useDispatch, useSelector } from "react-redux";
-import { deleteProd, getProdsFromCart } from "../../features/cartSlice";
+import { deleteProd, getProdsFromCart, productAdd } from "../../features/cartSlice";
 import styles from "./Cart.module.css"
 import flag from "./succes.png"
 import error from "./error.png"
+import { Link } from "react-router-dom";
+import { check, checkNull } from "../../features/productSlice";
 
 
 const Cart = () => {
+
+
     const dispatch = useDispatch()
     let cart = useSelector(state => state.cartReducer.cart)
     const [deleting, setDeleting] = useState(null)
   const [prod, setLocalProducts] = useState();
+  const [change, setChange] = useState([[], ""]);
+
 const token = useSelector((state) => state.authReducer.token);
 const auth = useSelector((state) => state.authReducer.isAuth);
 
+function addProduct(product, num) {
+    if(!token){
 
+    }else{
+        let check = !product.checked[num]
+      dispatch(productAdd({id: product._doc._id, checked: [num !== 0 ? product.checked[0] : check, num !== 1 ? product.checked[1] : check, num !== 2 ? product.checked[2] : check]}))
+    }
+  }
 
 
 
@@ -34,6 +47,7 @@ const auth = useSelector((state) => state.authReducer.isAuth);
 
         dispatch(deleteProd(id))
 
+
         }
       }
 
@@ -47,16 +61,19 @@ const auth = useSelector((state) => state.authReducer.isAuth);
                 <img src={item._doc.productPicture} className={styles.prodImg} alt="img" />
             </div>
             <div className={styles.leftMiddle}>
-                <p>{item._doc.productName}</p>
+                <Link to={`/product/${item._doc._id}`} > <p className={styles.zagolovok}>{item._doc.productName}</p> </Link>
                 <p className={styles.pflex} ><p className={styles.min}>Количество</p>{item.count}</p>
-                <p className={styles.pflex}>Выездной монтаж  <img className={styles.errOrNot} src={item.checked[0] ? flag : error} alt="" /></p>
-                <p className={styles.pflex}>Стационарный монтаж  <img className={styles.errOrNot} src={item.checked[1] ? flag : error} alt="" /></p>
-                <p className={styles.pflex}>Хранение  <img className={styles.errOrNot} src={item.checked[2] ? flag : error} alt="" /></p>
+                <p className={styles.pflex}>Выездной монтаж - 500 <button className={styles.checking} onClick={() => addProduct(item, 0)}><img className={styles.errOrNot} src={item.checked[0] ? flag : error} alt="" /></button></p>
+                <p className={styles.pflex}>Стационарный монтаж  <button className={styles.checking}  onClick={() => addProduct(item, 1)}><img className={styles.errOrNot} src={item.checked[1] ? flag : error} alt="" /></button></p>
+                <p className={styles.pflex}>Хранение - 1000 <button className={styles.checking}  onClick={() => addProduct(item, 2)}><img className={styles.errOrNot} src={item.checked[2] ? flag : error} alt="" /></button></p>
+                <p className={styles.pflex}>цена <p className={styles.errOrNot1}>{item._doc.price}</p></p>
+                <p className={styles.pflex}>Сумма <p className={styles.errOrNot1}>{item._doc.price + (item.checked[0] ? 500 : 0 ) + (item.checked[2] ? 1000 : 0 )}</p></p>
+
 
             </div>
             <div className={styles.leftRight}>
-                <button  onClick={() => setDeleting(index)} className={styles.delete}>🗑</button>
-                <div className={index === deleting ? styles.buttons : styles.none}>
+                <button  onClick={() => setDeleting(item._doc._id)} className={styles.delete}>🗑</button>
+                <div className={item._doc._id === deleting ? styles.buttons : styles.none}>
                         <input className={styles.otm} onClick={() => setDeleting(null)} type="button" value="отменить"/>
                         <input className={styles.ud} onClick={() => {
                             delProduct(item._doc._id)
@@ -66,6 +83,9 @@ const auth = useSelector((state) => state.authReducer.isAuth);
             </div>
         </div>
     }) : null}
+</div>
+<div className={styles.right}>
+
 </div>
     </div>
     </div>
