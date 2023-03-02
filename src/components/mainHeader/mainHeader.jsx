@@ -12,22 +12,43 @@ import { Link } from "react-router-dom";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getProdsFromCart } from "../../features/cartSlice";
+import { getProductsById } from "../../features/productsSlice";
 
 const MainHeader = () => {
   const auth = useSelector((state) => state.authReducer.isAuth);
   let cart = useSelector(state => state.cartReducer.cartLength)
-  console.log(cart)
-  const last = Number(String(cart.length)[String(cart.length).length - 1])
-  const lastsec = Number((cart.length > 9 ? String(cart.length)[String(cart.length).length - 2] : "0") + String(cart.length)[String(cart.length).length - 1])
+  let cart1 = useSelector(state => state.productsReducer.cartLength)
+  console.log(cart, cart1)
+  let last = undefined;
+  let lastsec = undefined;
+  if(cart.length > 0){
+ last = Number(String(cart.length)[String(cart.length).length - 1])
+lastsec = Number((cart.length > 9 ? String(cart.length)[String(cart.length).length - 2] : "0") + String(cart.length)[String(cart.length).length - 1])
+  }else{
+ last = Number(String(cart1.length)[String(cart1.length).length - 1])
+lastsec = Number((cart1.length > 9 ? String(cart1.length)[String(cart1.length).length - 2] : "0") + String(cart1.length)[String(cart1.length).length - 1])
+  }
   console.log(last, lastsec)
+
+
+
   const token = useSelector((state) => state.authReducer.token);
 
   const dispatch = useDispatch()
   useEffect(() => {
     if(auth){
         dispatch(getProdsFromCart())
-    }else{
+    }
+    else if(localStorage.getItem("cart").length > 0 && (localStorage.getItem("cart")[0] + localStorage.getItem("cart")[localStorage.getItem("cart").length - 1]) !== "[]"){
+      localStorage.setItem("cart", JSON.stringify([]))
+      console.log("Msnd")
+    }
+    else if(localStorage.getItem("cart").length !== 0){
 
+        dispatch(getProductsById({arr: JSON.parse(localStorage.getItem("cart"))}))
+    }
+    else{
+      localStorage.setItem("cart", JSON.stringify([]))
     }
     
 }, [auth]);
@@ -99,7 +120,7 @@ const MainHeader = () => {
         </div>
         <div className={styles.infBasketDiv}>
           <Link to="cart" className={styles.bask}> Корзина</Link>
-          <div className={styles.bask2}> {cart.length} {`товар${ lastsec > 10 && lastsec < 20 ? "ов" : last > 1 && last < 5 ? "a" : lastsec > 10 && lastsec < 20 ? "ов" : last > 4 && last < 10 || last === 0 ? "ов" : ""}`}</div>
+          <div className={styles.bask2}> {cart.length > 0 ? cart.length : cart1.length} {`товар${ lastsec > 10 && lastsec < 20 ? "ов" : last > 1 && last < 5 ? "a" : lastsec > 10 && lastsec < 20 ? "ов" : last > 4 && last < 10 || last === 0 ? "ов" : ""}`}</div>
         </div>
       </div>
     </>

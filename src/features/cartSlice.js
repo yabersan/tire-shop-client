@@ -116,6 +116,7 @@ export const getProdsFromCart = createAsyncThunk(
   }
 );
 
+
 const cartReducer = createSlice({
   name: "cart",
   initialState,
