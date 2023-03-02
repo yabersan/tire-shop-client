@@ -13,18 +13,20 @@ const Product = () => {
   const dispatch = useDispatch();
   const product = useSelector((state) => state.productsReducer.product);
 
-
-
   useEffect(() => {
     dispatch(getProduct(id));
   }, [dispatch, id]);
-
-  
 
   return (
     <div className={styles.product_container}>
       <Navigation product={product} />
       <ProductContainer product={product} />
+
+      <div className={styles.desc}>
+        <div className={styles.title_desc}>Описание</div>
+        <div className={styles.text_desc}>{product.productDescription} </div>
+      </div>
+
       <SimilarProducts />
       <Reviews />
     </div>

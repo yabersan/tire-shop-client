@@ -10,7 +10,18 @@
   margin: auto;
   margin-top: 20px;
 }
-
+.desc{
+  margin-top: 40px;
+}
+.title_desc{
+  font-size: 25px;
+}
+.text_desc{
+  font-size: 16px;
+  font-weight: 400;
+  padding-left: 15px;
+  margin-top: 15px;
+}
 
 
 
