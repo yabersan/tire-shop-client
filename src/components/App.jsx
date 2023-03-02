@@ -6,6 +6,7 @@ import { isAuth } from "../features/authSlice";
 import { addProducts } from "../features/cartSlice";
 import Main from "../pages/Main/Main";
 import "./App.css";
+import Auth from "./Auth/Auth";
 import Cart from "./Cart/Cart";
 import Header from "./Header/Header";
 import Login from "./Login/Login";
@@ -36,10 +37,11 @@ dispatch(isAuth())
           <Route path="/login" element={<Login />} />
           <Route index element={<Main />} />
           <Route path="/shops" element={<Shops />} />
-          <Route path="/promotion" element={ <Promotion />} />
-          <Route path="/promotion2" element={<TireStorage /> } />
-          <Route path="/product/:id" element={<Product />} />
+          <Route path="/promotion" element={<Promotion />} />
+          <Route path="/promotion2" element={<TireStorage />} />
+          <Route path="/auth" element={<Auth />} />
           <Route path="/cart" element={<Cart/>} />
+          <Route path="/product/:id" element={<Product />} />
 
           <Route />
         </Route>
