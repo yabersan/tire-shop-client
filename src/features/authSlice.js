@@ -7,6 +7,7 @@ const initialState = {
 };
 
 export const onChange = createAction("error");
+export const onClick = createAction('token')
 
 export const authSingUp = createAsyncThunk(
   "auth/singUp",

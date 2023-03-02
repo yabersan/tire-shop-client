@@ -2,6 +2,7 @@ import { Route, Routes } from "react-router-dom";
 import Layout from "../components/Layout/Layout";
 import Main from "../pages/Main/Main";
 import "./App.css";
+import Auth from "./Auth/Auth";
 import Header from "./Header/Header";
 import Login from "./Login/Login";
 import Product from "./Product/Product";
@@ -17,8 +18,9 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route index element={<Main />} />
           <Route path="/shops" element={<Shops />} />
-          <Route path="/promotion" element={ <Promotion />} />
-          <Route path="/promotion2" element={<TireStorage /> } />
+          <Route path="/promotion" element={<Promotion />} />
+          <Route path="/promotion2" element={<TireStorage />} />
+          <Route path="/auth" element={<Auth />} />
           <Route />
         </Route>
       </Routes>

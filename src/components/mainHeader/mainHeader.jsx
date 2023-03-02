@@ -8,9 +8,17 @@ import heart from "../mainHeader/Heart.png";
 import setting from "../mainHeader/Setting.png";
 import Bascet1 from "../mainHeader/Bascet1.png";
 import Bascet from "../mainHeader/Basket.png";
+import login from "../mainHeader/Login.svg";
 import { Link } from "react-router-dom";
+import { useSelect } from "@mui/base";
+import { useSelector } from "react-redux";
+import { color } from "@mui/system";
 
 const MainHeader = () => {
+  const token = useSelector((state) => state.authReducer.token);
+  const handleClick = () => {
+    localStorage.removeItem("token");
+  };
   return (
     <>
       <div className={styles.body}>
@@ -43,7 +51,14 @@ const MainHeader = () => {
           <img src={group} alt="" />
         </div>
         <div className={styles.entrance}>
-          <img src={entrance} alt="" />
+          <img src={login} alt="" />
+          {token === null ? (
+            <Link to="/login" style={{ color: "black" }}>
+              Войти
+            </Link>
+          ) : (
+            <div onClick={handleClick}>Выйти</div>
+          )}
         </div>
       </div>
       {/* Вторая строка */}
@@ -58,7 +73,7 @@ const MainHeader = () => {
         <div className={styles.textDiv}>
           <div className={styles.workingTime}>Режим работы:</div>
           <div className={styles.workingTime2}>Пн-Вс: c 09:00-20:00</div>
-        </div>    
+        </div>
         <div className={styles.callDiv}>
           <div className={styles.numberPhone}>8 (938) 020-16-96</div>
           <Link to="tel:89380201696" className={styles.call}>

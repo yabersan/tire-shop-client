@@ -55,65 +55,39 @@ const Login = () => {
 
   return (
     <>
-      <div className={styles.divFlex}>
-        <div className={styles.container}>
-          <div className={styles.text}>
-            <b>Вход</b>
-          </div>
-          <div className={styles.mainDiv}>
-            <input
-              onChange={(e) => loginValue(e)}
-              value={login}
-              placeholder="Номер телефона или email"
-              className={err === "login" ? styles.input1Error : styles.input1}
-              type="text"
-            />
+      
+      <div className={styles.container}>
+      {error === true && <div className={styles.error}>Неверный логин или пароль</div>}
+        <div className={styles.bigText}>
+          <h3>Пожалуйста, авторизуйтесь</h3>
+        </div>
 
-            <div>
-              <input
-                onChange={passwordValue}
-                value={password}
-                placeholder="Пароль"
-                className={
-                  err === "password" ? styles.input2Error : styles.input2
-                }
-                type={glaz ? "text" : "password"}
-                name=""
-                id=""
-              />
-
-              <button className={styles.button2}>
-                {glaz ? (
-                  <img
-                    onClick={clickGlaz}
-                    className={styles.glaz2}
-                    src={glaz2}
-                    alt=""
-                  />
-                ) : (
-                  <img
-                    onClick={clickGlaz}
-                    className={styles.glaz}
-                    src={glaz1}
-                    alt=""
-                  />
-                )}
-              </button>
-            </div>
-            {error && (
-              <div className={styles.errDiv}>Неверный логин или пароль</div>
-            )}
-            <button
-              onClick={(e) => {
-                login.length > 0 && password.length > 0
-                  ? handleClick(e)
-                  : handleErr(e);
-              }}
-              className={styles.button}
-            >
-              Войти
-            </button>
-          </div>
+        <div className={styles.div}>
+          <div className={styles.text}>Логин</div>
+          <input onChange={loginValue} className={styles.input} type="text" />
+        </div>
+        <div className={styles.div}>
+          <div className={styles.text}>Пароль</div>
+          <div  className={styles.t3}>
+          
+          <input
+            onChange={passwordValue}
+            className={styles.input3}
+            type="text"
+          /></div>
+        </div>
+        <div>
+          <input className={styles.input2} type="checkbox" name="" id="" />{" "}
+          <div className={styles.div2}>Запомнить меня на этом компьютере</div>
+        </div>
+        <button onClick={handleClick} className={styles.button}>
+          Войти
+        </button>
+        <hr className={styles.hr} />
+        <Link  className={styles.link}>Забыли свое пароль?</Link>
+        <div className={styles.helpDiv}>
+          <div  className={styles.helpDiv2}>Если вы впервые на сайте, заполните, пожалуйста, регистрационную форму.</div>
+          <Link to='/auth'  className={styles.helpDiv3}>Зарегистрироваться</Link>
         </div>
       </div>
     </>
