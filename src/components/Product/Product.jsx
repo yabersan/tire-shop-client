@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { getProduct } from "../../features/productsSlice";
@@ -21,6 +21,12 @@ const Product = () => {
     <div className={styles.product_container}>
       <Navigation product={product} />
       <ProductContainer product={product} />
+
+      <div className={styles.desc}>
+        <div className={styles.title_desc}>Описание</div>
+        <div className={styles.text_desc}>{product.productDescription} </div>
+      </div>
+
       <SimilarProducts />
       <Reviews />
     </div>

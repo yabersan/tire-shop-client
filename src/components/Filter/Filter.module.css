@@ -1,33 +1,38 @@
 .filter_container {
   margin: auto;
   text-align: center;
-  width: 350px;
+  width: 500px;
   background-color: #f8f8f8;
-  padding: 10px;
+  overflow: hidden;
   border-radius: 10px;
   margin-top: 15px;
-  border: 1px solid #e6e9ec;
+
 }
 
 .filter_title_box {
   display: flex;
   justify-content: center;
-  margin-bottom: 5px;
 }
 .filter_title_car {
-  border-radius: 0px 5px 0px 0px;
-  padding: 5px 10px 5px 10px;
+  border-radius: 0px 10px 0px 0px;
+  padding: 10px 30px 10px 30px;
   border: 0.5px solid #e6e9ec;
-  background-color: white;
-  font-size: 16px;
+  background-color: #f8f8f8;
+  font-size: 18px;
+  color: rgb(73, 73, 73);
+  width: 30%;
+  font-weight: 400;
 }
 
 .filter_title_category {
-  border-radius: 5px 0px 0px 0px;
-  padding: 5px 10px 5px 10px;
+  border-radius: 10px 0px 0px 0px;
+  padding: 10px 30px 10px 30px;
   border: 0.5px solid #e6e9ec;
-  background-color: white;
-  font-size: 16px;
+  background-color: #f8f8f8;
+  font-size: 18px;
+  color: rgb(73, 73, 73);
+  width: 70%;
+  font-weight: 400;
 }
 
 /* .alert-enter{
@@ -62,8 +67,6 @@
 }
 .yellowBtn {
   background-color: #fade56;
-  border-radius: 0px 5px 0px 0px;
-  padding: 5px 10px 5px 10px;
   border: 0.5px solid #e6e9ec;
-  font-size: 16px;
+  font-weight: 600;
 }

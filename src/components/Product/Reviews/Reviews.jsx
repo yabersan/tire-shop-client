@@ -5,20 +5,23 @@ import SendIcon from "@mui/icons-material/Send";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { addReview, getReview } from "../../../features/reviewsSlice";
+import { useParams } from "react-router-dom";
+import moment from "moment";
 
 const Reviews = () => {
   const [input, setInput] = useState("");
   const token = useSelector((state) => state.authReducer.token);
   const dispatch = useDispatch();
   const reviews = useSelector((state) => state.reviewReducer.reviews);
-  const product = useSelector((state) => state.productsReducer.product);
+  const { id } = useParams();
+  const loading = useSelector((state) => state.reviewReducer.loading);
 
   useEffect(() => {
-    dispatch(getReview());
+    dispatch(getReview(id));
   }, [dispatch]);
 
   function handleSubmit() {
-    dispatch(addReview({ input, product }));
+    dispatch(addReview({ input, id }));
   }
   function hadleChange(event) {
     setInput(event.target.value);
@@ -52,7 +55,7 @@ const Reviews = () => {
               size="small"
               disabled={!input}
               endIcon={<SendIcon />}
-              // loading={loading}
+              loading={loading}
               loadingPosition="end"
               variant="contained"
             >
@@ -70,7 +73,12 @@ const Reviews = () => {
         {reviews.map((review) => {
           return (
             <div className={styles.review_box}>
-              <div className={styles.reviewer_name}>{review.userId.name}</div>
+              <div className={styles.reviewer_name}>
+                {review.userId.name}{" "}
+                <div className={styles.created_at}>
+                  {moment(review.createdAt).format("YYYY.MM.DD HH:mm")}
+                </div>{" "}
+              </div>
               <div className={styles.review_text}>{review.textReview}</div>
             </div>
           );

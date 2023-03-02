@@ -2,7 +2,6 @@ import { useState } from "react";
 import styles from "./Filter.module.css";
 import FilterByCar from "./FilterByCar/FilterByCar";
 import FilterByCategory from "./FilterByCategory/FilterByCategory";
-import { CSSTransition } from "react-transition-group";
 
 const Filter = ({ products, handleFilter, loading, tires }) => {
   const [block1Visible, setBlock1Visible] = useState(true);
@@ -20,13 +19,22 @@ const Filter = ({ products, handleFilter, loading, tires }) => {
       <div className={styles.filter_title_box}>
         <button
           className={
-            block1Visible ? styles.yellowBtn : styles.filter_title_category
+            block1Visible
+              ? `${styles.yellowBtn} ${styles.filter_title_category}`
+              : styles.filter_title_category
           }
           onClick={handleBtnCategory}
         >
           Подбор шин по типоразмеру
         </button>
-        <button className={!block1Visible ? styles.yellowBtn : styles.filter_title_car} onClick={handleBtnCars}>
+        <button
+          className={
+            !block1Visible
+              ? `${styles.yellowBtn} ${styles.filter_title_car}`
+              : styles.filter_title_car
+          }
+          onClick={handleBtnCars}
+        >
           По авто
         </button>
       </div>

@@ -1,20 +1,21 @@
 import React from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { check } from "../../../../../../../features/productSlice";
 import styles from './KeepingCheckbox.module.css'
 
 const KeepingCheckbox = () => {
 
-  const qty = useSelector(state => state.productReducer.qty)
- 
-function handleQty(event){
-  console.log(event.target.checked);
+  const isCheck = useSelector(state => state.productReducer.checked[2])
+ const dispatch = useDispatch()
+function handleCheck(){
+  dispatch(check(2))
 }
 
 
   return (
     <div className={styles.switch_container}>
       <label className={styles.switch}>
-        <input onChange={handleQty} className={styles.checkbox1} type="checkbox" />
+        <input onChange={handleCheck} className={styles.checkbox1} checked={isCheck} type="checkbox" />
         <span className={styles.slider}></span>
       </label>
       <div>

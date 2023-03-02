@@ -1,0 +1,78 @@
+.filter_box {
+  display: table;
+  table-layout: fixed;
+  width: 100%;
+  margin: auto;
+  background-color: white;
+  border-bottom: 1px solid #e6e9ec;
+  border-right: 1px solid #e6e9ec;
+  border-left: 1px solid #e6e9ec;
+  border-radius: 0 0 10px 10px;
+  padding: 20px 10px 20px 10px;
+}
+
+.row_1,
+.row_2 {
+  display: table-row;
+}
+
+.cell {
+  display: table-cell;
+  width: 33.33%;
+  padding: 5px;
+}
+
+.cell_1 {
+  display: table-cell;
+  width: 50%;
+}
+
+.btn_submit {
+  background-color: #fade56;
+  padding: 13px;
+  border: 0.5px solid #e6e9ec;
+  font-size: 16px;
+  border-radius: 7px;
+  cursor: pointer;
+  width: 100%;
+}
+
+.filter_box select {
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  padding: 15px;
+  border: 1px solid #e6e9ec;
+  border-radius: 7px;
+  background-color: #fff;
+  color: #919191;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  cursor: pointer;
+  font-weight: 400;
+  width: 100%;
+  /* background-repeat: no-repeat; */
+  /* background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTQiIGhlaWdodD0iNyIgdmlld0JveD0iMCAwIDE0IDciIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxwYXRoIGZpbGwtcnVsZT0iZXZlbm9kZCIgY2xpcC1ydWxlPSJldmVub2RkIiBkPSJNMTIuNzY1OSAwLjI3OTU3N0MxMy4xMzg3IDAuNjUyMzQ3IDEzLjEzODcgMS4yNTY3NCAxMi43NjU5IDEuNjI5NDdMNy42NzQ5OCA2LjcyMDM5QzcuMzAyMTkgNy4wOTMxNyA2LjY5NzkgNy4wOTMxNyA2LjMyNTEyIDYuNzIwMzlMMS4yMzQxNyAxLjYyOTQ3QzAuODYxMzk3IDEuMjU2NzQgMC44NjEzOTcgMC42NTIzNDcgMS4yMzQxNyAwLjI3OTU3N0MxLjYwNjk0IC0wLjA5MzE5MjQgMi4yMTEzMyAtMC4wOTMxOTI0IDIuNTg0MSAwLjI3OTU3N0w3LjAwMDA1IDQuNjk1NDdMMTEuNDE2IDAuMjc5NTc3QzExLjc4ODggLTAuMDkzMTkyNCAxMi4zOTMxIC0wLjA5MzE5MjQgMTIuNzY1OSAwLjI3OTU3N1oiIGZpbGw9IiM4RTk0OTkiPjwvcGF0aD4KICAKCgoKPCEtLSBUaGlzIGlzIHVzZWQgZm9yIG91dHB1dCAtLT4KPC9zdmc+); */
+}
+
+.tire_width_title {
+  color: #999898 !important;
+}
+
+.filter_box select:hover {
+  border-color: #99999900;
+  box-shadow: 0 0 10px 1px #ebebeb;
+}
+
+.filter_box select:focus {
+  border-radius: 7px;
+  outline: none;
+  border-color: #e6e9ec;
+}
+
+option {
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  background-color: #ffffff;
+  color: #000000;
+}

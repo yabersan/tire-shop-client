@@ -11,9 +11,8 @@ export const exitModalWindow = createAction("exitmodal");
 
 export const addReview = createAsyncThunk(
   "reviews/addreviews",
-  async ({ input, product }, thunkAPI) => {
+  async ({ input, id }, thunkAPI) => {
     const state = thunkAPI.getState();
-    console.log(state);
     try {
       const res = await fetch("http://localhost:4040/reviews/add", {
         method: "POST",
@@ -21,7 +20,7 @@ export const addReview = createAsyncThunk(
           "Content-Type": "application/json",
           Authorization: `Bearer ${state.authReducer.token}`,
         },
-        body: JSON.stringify({ textReview: input, productId: product }),
+        body: JSON.stringify({ textReview: input, productId: id }),
       });
       const review = await res.json();
       if (review.error) {
@@ -59,9 +58,9 @@ export const addReview = createAsyncThunk(
 
 export const getReview = createAsyncThunk(
   "reviews/getreviews",
-  async (_, thunkAPI) => {
+  async (id, thunkAPI) => {
     try {
-      const res = await fetch(`http://localhost:4040/reviews`);
+      const res = await fetch(`http://localhost:4040/reviews/${id}`);
 
       const reviews = await res.json();
       if (reviews.error) {

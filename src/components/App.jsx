@@ -1,8 +1,13 @@
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { Route, Routes } from "react-router-dom";
 import Layout from "../components/Layout/Layout";
+import { isAuth } from "../features/authSlice";
+import { addProducts } from "../features/cartSlice";
 import Main from "../pages/Main/Main";
 import "./App.css";
 import Auth from "./Auth/Auth";
+import Cart from "./Cart/Cart";
 import Header from "./Header/Header";
 import Login from "./Login/Login";
 import Product from "./Product/Product";
@@ -11,6 +16,20 @@ import TireStorage from "./Promotion/two/TireStorage";
 import Shops from "./Shops/Shops";
 
 function App() {
+const dispatch = useDispatch()
+const token = localStorage.getItem("token")
+const auth = useSelector(state => state.authReducer.isAuth)
+
+
+useEffect(() => {
+if(auth){
+
+dispatch(addProducts(JSON.parse(localStorage.getItem("cart"))))
+}
+dispatch(isAuth())
+
+
+}, [auth]);
   return (
     <div className="App">
       <Routes>
@@ -21,6 +40,9 @@ function App() {
           <Route path="/promotion" element={<Promotion />} />
           <Route path="/promotion2" element={<TireStorage />} />
           <Route path="/auth" element={<Auth />} />
+          <Route path="/cart" element={<Cart/>} />
+          <Route path="/product/:id" element={<Product />} />
+
           <Route />
         </Route>
       </Routes>

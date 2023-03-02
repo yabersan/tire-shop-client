@@ -1,4 +1,4 @@
-import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import { createAction, createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   products: [],
@@ -6,6 +6,8 @@ const initialState = {
   error: false,
   loading: false,
   product: {},
+  cart: [],
+  cartLength: []
 };
 
 export const getProduct = createAsyncThunk(
@@ -62,10 +64,52 @@ export const filterProducts = createAsyncThunk(
   }
 );
 
+export const getProductsById = createAsyncThunk(
+  "products/getId",
+  async (act, thunkAPI) => {
+    try {
+
+      const res = await fetch(`http://localhost:4040/products/products`, {
+        method: "POST",
+        body: JSON.stringify({
+          arr: act.arr,
+        }),
+        headers: {
+          "Content-type": "application/json; charset=UTF-8",
+          authorization: `Bearer ${localStorage.getItem("token")}`,
+        },
+      });
+
+      return res.json()
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
+
+
+
+
+
 const productsReducer = createSlice({
   name: "products",
   initialState,
-  reducers: {},
+  reducers: { 
+    changeChecked: (state, action) => {
+
+      state.cart = state.cart.map(item => {
+        return item._doc._id === action.payload[0] ? {...item, checked: action.payload[1]} : item
+      })
+      state.cartLength = state.cart
+
+    },
+    delProd: (state, action) => {
+      state.cart = state.cart.filter(item => {
+        return item._doc._id === action.payload ? null : item
+      })
+      state.cartLength = state.cart
+    }
+  },
   extraReducers: async (builder) => {
     builder
 
@@ -104,8 +148,13 @@ const productsReducer = createSlice({
       .addCase(filterProducts.rejected, (state, action) => {
         state.loading = false;
         state.error = action.payload;
-      });
+      }).addCase(getProductsById.fulfilled, (state, action) => {
+        state.cart = action.payload
+      state.cartLength = state.cart
+
+      })
   },
 });
+export const { changeChecked, delProd } = productsReducer.actions;
 
 export default productsReducer.reducer;
