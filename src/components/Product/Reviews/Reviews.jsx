@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { addReview, getReview } from "../../../features/reviewsSlice";
 import { useParams } from "react-router-dom";
+import moment from "moment";
 
 const Reviews = () => {
   const [input, setInput] = useState("");
@@ -72,7 +73,12 @@ const Reviews = () => {
         {reviews.map((review) => {
           return (
             <div className={styles.review_box}>
-              <div className={styles.reviewer_name}>{review.userId.name}</div>
+              <div className={styles.reviewer_name}>
+                {review.userId.name}{" "}
+                <div className={styles.created_at}>
+                  {moment(review.createdAt).format("YYYY.MM.DD HH:mm")}
+                </div>{" "}
+              </div>
               <div className={styles.review_text}>{review.textReview}</div>
             </div>
           );

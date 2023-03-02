@@ -37,7 +37,7 @@ form {
 }
 .review_box {
   background-color: #f8f8f8;
-  padding: 10px 0 10px 10px;
+  padding: 10px 10px 20px 10px;
   border-radius: 7px;
   border: 1px solid #e6e9ec;
   margin-bottom: 20px;
@@ -46,4 +46,12 @@ form {
   font-weight: 400;
   padding-top: 10px;
   padding-left: 30px;
+}
+.created_at{
+  font-size: 10px;
+  color: rgb(150, 149, 149);
+}
+.reviewer_name{
+  display:flex;
+  justify-content: space-between;
 }
