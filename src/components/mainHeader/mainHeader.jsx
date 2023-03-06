@@ -26,7 +26,7 @@ const MainHeader = () => {
   const auth = useSelector((state) => state.authReducer.isAuth);
   let cart = useSelector(state => state.cartReducer.cartLength)
   let cart1 = useSelector(state => state.productsReducer.cartLength)
-  console.log(cart, cart1)
+
   let last = undefined;
   let lastsec = undefined;
   if(cart.length > 0){
