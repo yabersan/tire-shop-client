@@ -1,16 +1,24 @@
 import { useState } from "react";
+import { useDispatch } from "react-redux";
+import {
+  setClearCategotyFilter,
+  setClearCarFilter,
+} from "../../features/filterProductSlice";
 import styles from "./Filter.module.css";
 import FilterByCar from "./FilterByCar/FilterByCar";
 import FilterByCategory from "./FilterByCategory/FilterByCategory";
 
 const Filter = ({ products, handleFilter, loading, tires }) => {
   const [block1Visible, setBlock1Visible] = useState(true);
+  const dispatch = useDispatch();
 
   function handleBtnCategory() {
+    dispatch(setClearCarFilter());
     setBlock1Visible(true);
   }
 
   function handleBtnCars() {
+    dispatch(setClearCategotyFilter());
     setBlock1Visible(false);
   }
 
@@ -49,7 +57,7 @@ const Filter = ({ products, handleFilter, loading, tires }) => {
           />
         </div>
       ) : (
-        <FilterByCar />
+        <FilterByCar handleFilter={handleFilter} />
       )}
     </div>
   );
