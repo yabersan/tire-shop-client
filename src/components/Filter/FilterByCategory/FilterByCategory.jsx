@@ -9,57 +9,33 @@ import {
   setTireWidth,
 } from "../../../features/filterProductSlice";
 
-const FilterByCategory = ({ products, handleFilter, loading, tires }) => {
+const FilterByCategory = ({ products, handleFilter, loading }) => {
   const dispatch = useDispatch();
-  const tireWidthObj = {};
-  const tireHeightObj = {};
-  const tireDiameterObj = {};
-  const tireCompanyObj = {};
-  const seasonObj = {};
 
-  const tireCompanyArr = products.filter((item) => {
-    if (!tireCompanyObj[item.tireCompany]) {
-      tireCompanyObj[item.tireCompany] = true;
-      return true;
-    } else {
-      return false;
-    }
+  const tireCompanyArr = products.filter((obj, index, self) => {
+    return (
+      index === self.findIndex((item) => item.tireCompany === obj.tireCompany)
+    );
   });
 
-  const seasonArr = products.filter((item) => {
-    if (!seasonObj[item.season]) {
-      seasonObj[item.season] = true;
-      return true;
-    } else {
-      return false;
-    }
+  const seasonArr = products.filter((obj, index, self) => {
+    return index === self.findIndex((item) => item.season === obj.season);
   });
 
-  const tireWidthArr = products.filter((item) => {
-    if (!tireWidthObj[item.tireWidth]) {
-      tireWidthObj[item.tireWidth] = true;
-      return true;
-    } else {
-      return false;
-    }
+  const tireWidthArr = products.filter((obj, index, self) => {
+    return index === self.findIndex((item) => item.tireWidth === obj.tireWidth);
   });
 
-  const tireHeightArr = products.filter((item) => {
-    if (!tireHeightObj[item.tireHeight]) {
-      tireHeightObj[item.tireHeight] = true;
-      return true;
-    } else {
-      return false;
-    }
+  const tireHeightArr = products.filter((obj, index, self) => {
+    return (
+      index === self.findIndex((item) => item.tireHeight === obj.tireHeight)
+    );
   });
 
-  const tireDiameterArr = products.filter((item) => {
-    if (!tireDiameterObj[item.tireDiameter]) {
-      tireDiameterObj[item.tireDiameter] = true;
-      return true;
-    } else {
-      return false;
-    }
+  const tireDiameterArr = products.filter((obj, index, self) => {
+    return (
+      index === self.findIndex((item) => item.tireDiameter === obj.tireDiameter)
+    );
   });
 
   return (
@@ -188,10 +164,7 @@ const FilterByCategory = ({ products, handleFilter, loading, tires }) => {
         </div>
 
         <div className={styles.cell}>
-          <button
-            className={styles.btn_submit}
-            onClick={() => handleFilter(tires)}
-          >
+          <button className={styles.btn_submit} onClick={handleFilter}>
             Подобрать
           </button>
         </div>
