@@ -22,18 +22,14 @@ const Main = () => {
       tireDiameter: setFilters.tireDiameter,
       tireCompany: setFilters.tireCompany,
       season: setFilters.season,
+      carCompany: setFilters.car,
+      carModel: setFilters.model,
+      year: setFilters.year,
+      modification: setFilters.modification,
     },
   ];
 
-  const tires = [
-    setFilters.tireWidth,
-    setFilters.tireHeight,
-    setFilters.tireDiameter,
-    setFilters.tireCompany,
-    setFilters.season,
-  ]; //Массив, который формируется после фильрации на фронте, после чего отправляется на бэк для филтрации там. Нужно
-
-  function handleFilter(tires) {
+  function handleFilter() {
     const query = {};
     for (const key in tireArray[0]) {
       if (tireArray[0][key] !== false && tireArray[0][key] !== 0) {
@@ -51,7 +47,6 @@ const Main = () => {
       const arrayParams = new Array(params);
       dispatch(getProducts());
       dispatch(filterProducts(arrayParams));
-
     }
   }, [dispatch]);
 
@@ -69,12 +64,7 @@ const Main = () => {
         handleFilter={handleFilter}
         loading={loading}
       />
-      <Products
-        tires={tires}
-        products={products}
-        filter={filter}
-        loading={loading}
-      />
+      <Products products={products} filter={filter} loading={loading} />
     </div>
   );
 };

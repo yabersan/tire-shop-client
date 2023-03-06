@@ -1,6 +1,51 @@
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  getCarModel,
+  getCarModification,
+  getCars,
+  getCarYear,
+  setCar,
+  setModel,
+  setModification,
+  setYear,
+} from "../../../features/filterProductSlice";
 import styles from "./FilterByCar.module.css";
 
-const FilterByCar = () => {
+const FilterByCar = ({ handleFilter }) => {
+  const dispatch = useDispatch();
+  const carCompany = useSelector((state) => state.filterReducer.cars);
+  const filter = useSelector((state) => state.filterReducer);
+
+  useEffect(() => {
+    dispatch(getCars());
+  }, [dispatch]);
+
+  function handleChangeCarModel(event) {
+    dispatch(getCarModel(event.target.value));
+    dispatch(setCar(event.target.value));
+  }
+  function handleChangeYear(event) {
+    dispatch(
+      getCarYear({
+        carCompany: filter.car,
+        carModel: event.target.value,
+      })
+    );
+    dispatch(setModel(event.target.value));
+  }
+
+  function handleChangeModification(event) {
+    dispatch(
+      getCarModification({
+        carCompany: filter.car,
+        carModel: filter.model,
+        year: event.target.value,
+      })
+    );
+    dispatch(setYear(event.target.value));
+  }
+
   return (
     <div className={styles.filter_box}>
       <div className={styles.row_1}>
@@ -10,42 +55,40 @@ const FilterByCar = () => {
             defaultValue="tire_title"
             name="tire1"
             id="tire1"
-        /*     onChange={(e) => dispatch(setTireWidth(e.target.value))} */
+            onChange={handleChangeCarModel}
           >
-            <option
-              className={styles.tire_width_title}
-              value="tire_title"
-              disabled
-            >
+            <option className={styles.tire_width_title} value="tire_title">
               Марка
             </option>
-            {/* {tireWidthArr.map((item) => {
+            {carCompany.map((item) => {
               return (
-                <option key={item._id} value={item.tireWidth}>
-                  {item.tireWidth}
+                <option key={item + 1} value={item}>
+                  {item}
                 </option>
               );
-            })} */}
+            })}
           </select>
         </div>
 
         <div className={styles.cell}>
           <select
-            defaultValue="tire_title"
+            defaultValue={filter.modelValue}
             name="tire2"
             id="tire2"
-            /* onChange={(e) => dispatch(setTireHeight(e.target.value))} */
+            onChange={handleChangeYear}
           >
-            <option value="tire_title" disabled>
-              Модель
-            </option>
-            {/* {tireHeightArr.map((item) => {
+            {filter.models.length > 0 ? (
+              <option value="tire_title" className={styles.tire_width_title}>
+                Модель
+              </option>
+            ) : null}
+            {filter.models.map((item) => {
               return (
-                <option key={item._id} value={item.tireHeight}>
-                  {item.tireHeight}
+                <option key={item} value={item}>
+                  {item}
                 </option>
               );
-            })} */}
+            })}
           </select>
         </div>
 
@@ -53,25 +96,23 @@ const FilterByCar = () => {
           {" "}
           <select
             className={styles.tire_diameter}
-            defaultValue="tire_title"
+            defaultValue={filter.yearValue}
             name="tire3"
             id="tire3"
-           /*  onChange={(e) => dispatch(setTireDiameter(e.target.value))} */
+            onChange={handleChangeModification}
           >
-            <option
-              className={styles.tire_width_title}
-              value="tire_title"
-              disabled
-            >
-              Год
-            </option>
-            {/* {tireDiameterArr.map((item) => {
+            {filter.years.length > 0 ? (
+              <option className={styles.tire_width_title} value="tire_title">
+                Год
+              </option>
+            ) : null}
+            {filter.years.map((item) => {
               return (
-                <option key={item._id} value={item.tireDiameter}>
-                  {item.tireDiameter}
+                <option key={item} value={item}>
+                  {item}
                 </option>
               );
-            })} */}
+            })}
           </select>
         </div>
       </div>
@@ -80,34 +121,28 @@ const FilterByCar = () => {
         <div className={styles.cell}>
           <select
             className={styles.tire_width}
-            defaultValue="tire_title"
+            defaultValue={filter.modificationValue}
             name="tire4"
             id="tire4"
-            /* onChange={(e) => dispatch(setTireCompany(e.target.value))} */
+            onChange={(e) => dispatch(setModification(e.target.value))}
           >
-            <option
-              className={styles.tire_width_title}
-              value="tire_title"
-              disabled
-            >
-             Модификация
-            </option>
-           {/*  {tireCompanyArr.map((item) => {
+            {filter.modifications.length > 0 ? (
+              <option className={styles.tire_width_title} value="tire_title">
+                Модификация
+              </option>
+            ) : null}
+            {filter.modifications.map((item) => {
               return (
-                <option key={item._id} value={item.tireCompany}>
-                  {item.tireCompany}
+                <option key={item} value={item}>
+                  {item}
                 </option>
               );
-            })} */}
+            })}
           </select>
         </div>
 
-
         <div className={styles.cell}>
-          <button
-            className={styles.btn_submit}
-            /* onClick={() => handleFilter(tires)} */
-          >
+          <button className={styles.btn_submit} onClick={handleFilter}>
             Подобрать
           </button>
         </div>

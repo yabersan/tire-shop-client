@@ -1,4 +1,4 @@
-import { createAction, createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   products: [],
@@ -7,7 +7,7 @@ const initialState = {
   loading: false,
   product: {},
   cart: [],
-  cartLength: []
+  cartLength: [],
 };
 
 export const getProduct = createAsyncThunk(
@@ -21,7 +21,6 @@ export const getProduct = createAsyncThunk(
       } else {
         return product;
       }
-      
     } catch (error) {}
   }
 );
@@ -53,6 +52,7 @@ export const filterProducts = createAsyncThunk(
         body: JSON.stringify({ tireArray }),
       });
       const products = await res.json();
+
       if (products.error) {
         return thunkAPI.rejectWithValue(products.error);
       } else {
@@ -68,7 +68,6 @@ export const getProductsById = createAsyncThunk(
   "products/getId",
   async (act, thunkAPI) => {
     try {
-
       const res = await fetch(`http://localhost:4040/products/products`, {
         method: "POST",
         body: JSON.stringify({
@@ -80,35 +79,31 @@ export const getProductsById = createAsyncThunk(
         },
       });
 
-      return res.json()
+      return res.json();
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
     }
   }
 );
 
-
-
-
-
 const productsReducer = createSlice({
   name: "products",
   initialState,
-  reducers: { 
+  reducers: {
     changeChecked: (state, action) => {
-
-      state.cart = state.cart.map(item => {
-        return item._doc._id === action.payload[0] ? {...item, checked: action.payload[1]} : item
-      })
-      state.cartLength = state.cart
-
+      state.cart = state.cart.map((item) => {
+        return item._doc._id === action.payload[0]
+          ? { ...item, checked: action.payload[1] }
+          : item;
+      });
+      state.cartLength = state.cart;
     },
     delProd: (state, action) => {
-      state.cart = state.cart.filter(item => {
-        return item._doc._id === action.payload ? null : item
-      })
-      state.cartLength = state.cart
-    }
+      state.cart = state.cart.filter((item) => {
+        return item._doc._id === action.payload ? null : item;
+      });
+      state.cartLength = state.cart;
+    },
   },
   extraReducers: async (builder) => {
     builder
@@ -148,11 +143,11 @@ const productsReducer = createSlice({
       .addCase(filterProducts.rejected, (state, action) => {
         state.loading = false;
         state.error = action.payload;
-      }).addCase(getProductsById.fulfilled, (state, action) => {
-        state.cart = action.payload
-      state.cartLength = state.cart
-
       })
+      .addCase(getProductsById.fulfilled, (state, action) => {
+        state.cart = action.payload;
+        state.cartLength = state.cart;
+      });
   },
 });
 export const { changeChecked, delProd } = productsReducer.actions;
