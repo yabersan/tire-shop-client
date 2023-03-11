@@ -19,5 +19,8 @@
 ```
 git clone https://github.com/semeikaya/tire-shop-client.git
 ```
-
+2. Заустить проект
+```
+npm start
+```
 
