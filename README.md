@@ -46,9 +46,13 @@ npm start
    <a href="">
 <img alt="JavaScript" src="https://img.shields.io/badge/-JavaScript-yellow?style=for-the-badge&logo=JavaScript&logoColor=white" />
   </a>
+  <a href="https://mui.com/">
+<img alt="Material UI" src="https://img.shields.io/badge/-Material UI-f8f8f8?style=for-the-badge&logo=mui&logoColor=white" />
+  </a>
+   <a href="https://jwt.io/">
+<img alt="JWT" src="https://img.shields.io/badge/-Material UI-f8f8f8?style=for-the-badge&logo=JSONWebTokens&logoColor=white" />
+  </a>
   
   
   
-  
-  <img alt="Material UI" src="https://img.shields.io/badge/-Material UI-f8f8f8f8?style=for-the-badge&logo=mui&logoColor=white" />
 </p>
