@@ -19,7 +19,11 @@
 ```
 git clone https://github.com/semeikaya/tire-shop-client.git
 ```
-2. Заустить проект
+2. Установить библиотеки
+```
+npm install
+```
+3. Заустить проект
 ```
 npm start
 ```
