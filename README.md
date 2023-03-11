@@ -50,7 +50,7 @@ npm start
 <img alt="Material UI" src="https://img.shields.io/badge/-Material UI-4794b5?style=for-the-badge&logo=mui&logoColor=white" />
   </a>
    <a href="https://jwt.io/">
-<img alt="JWT" src="https://img.shields.io/badge/-Material UI-black=for-the-badge&logo=JSONWebTokens&logoColor=white" />
+     <img alt="JWT" src="https://img.shields.io/badge/-JSON Web Token-black?style=for-the-badge&logo=JSONWebTokens&logoColor=white" />
   </a>
   
   
