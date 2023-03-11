@@ -1,10 +1,12 @@
-# Getting Started with Create React App
+# Сайт по продаже шин
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Это групповой проект, выполненный студентами школы программирования Intocode.
 
-## Available Scripts
+## Функционал сайта
 
-In the project directory, you can run:
+⋅⋅* Авторизация
+⋅⋅* Фильтрация товаров по типу шин и авто
+⋅⋅* Добавление товара в корзину
 
 ### `npm start`
 
